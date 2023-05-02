@@ -19,7 +19,6 @@ struct UserProfile: View {
                 
                 GeometryReader{ proxy in
                     VStack{
-                       
                         VStack{
                             
                             Image("Profile")

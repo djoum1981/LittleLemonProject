@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AA4AE26A2A0093080091FEBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4AE2692A0093080091FEBB /* Assets.xcassets */; };
 		AA94EE592A008A6800B89070 /* LittleLemonProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */; };
 		AA94EE612A008A6A00B89070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA94EE602A008A6A00B89070 /* Preview Assets.xcassets */; };
 		AA94EE6B2A008AB900B89070 /* CustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE682A008AB900B89070 /* CustomStyle.swift */; };
@@ -16,10 +17,10 @@
 		AA94EE722A008AC600B89070 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE6F2A008AC600B89070 /* Onboarding.swift */; };
 		AA94EE732A008AC600B89070 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE702A008AC600B89070 /* Menu.swift */; };
 		AA94EE752A008AD000B89070 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE742A008AD000B89070 /* UserProfile.swift */; };
-		AA94EE772A008B0500B89070 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA94EE762A008B0500B89070 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA4AE2692A0093080091FEBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA94EE552A008A6800B89070 /* LittleLemonProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemonProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonProjectApp.swift; sourceTree = "<group>"; };
 		AA94EE5E2A008A6A00B89070 /* LittleLemonProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleLemonProject.entitlements; sourceTree = "<group>"; };
@@ -31,7 +32,6 @@
 		AA94EE6F2A008AC600B89070 /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		AA94EE702A008AC600B89070 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		AA94EE742A008AD000B89070 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
-		AA94EE762A008B0500B89070 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../Coursera_project/LittleLemon/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 			children = (
 				AA94EE672A008AA000B89070 /* View */,
 				AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */,
-				AA94EE762A008B0500B89070 /* Assets.xcassets */,
 				AA94EE5E2A008A6A00B89070 /* LittleLemonProject.entitlements */,
+				AA4AE2692A0093080091FEBB /* Assets.xcassets */,
 				AA94EE5F2A008A6A00B89070 /* Preview Content */,
 			);
 			path = LittleLemonProject;
@@ -153,8 +153,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA4AE26A2A0093080091FEBB /* Assets.xcassets in Resources */,
 				AA94EE612A008A6A00B89070 /* Preview Assets.xcassets in Resources */,
-				AA94EE772A008B0500B89070 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,8 +309,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -347,8 +346,7 @@
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
