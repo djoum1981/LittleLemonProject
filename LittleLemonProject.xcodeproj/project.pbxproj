@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		AA4AE26A2A0093080091FEBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA4AE2692A0093080091FEBB /* Assets.xcassets */; };
+		AA4AE26D2A045AC10091FEBB /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE26C2A045AC10091FEBB /* Color+Extension.swift */; };
 		AA94EE592A008A6800B89070 /* LittleLemonProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */; };
 		AA94EE612A008A6A00B89070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA94EE602A008A6A00B89070 /* Preview Assets.xcassets */; };
 		AA94EE6B2A008AB900B89070 /* CustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE682A008AB900B89070 /* CustomStyle.swift */; };
 		AA94EE6C2A008AB900B89070 /* CustomTextfieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE692A008AB900B89070 /* CustomTextfieldStyle.swift */; };
 		AA94EE6D2A008AB900B89070 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE6A2A008AB900B89070 /* Home.swift */; };
-		AA94EE712A008AC600B89070 /* MenuItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE6E2A008AC600B89070 /* MenuItems.swift */; };
+		AA94EE712A008AC600B89070 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE6E2A008AC600B89070 /* MenuCell.swift */; };
 		AA94EE722A008AC600B89070 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE6F2A008AC600B89070 /* Onboarding.swift */; };
 		AA94EE732A008AC600B89070 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE702A008AC600B89070 /* Menu.swift */; };
 		AA94EE752A008AD000B89070 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE742A008AD000B89070 /* UserProfile.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		AA4AE2692A0093080091FEBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AA4AE26C2A045AC10091FEBB /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		AA94EE552A008A6800B89070 /* LittleLemonProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemonProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonProjectApp.swift; sourceTree = "<group>"; };
 		AA94EE5E2A008A6A00B89070 /* LittleLemonProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleLemonProject.entitlements; sourceTree = "<group>"; };
@@ -28,7 +30,7 @@
 		AA94EE682A008AB900B89070 /* CustomStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStyle.swift; sourceTree = "<group>"; };
 		AA94EE692A008AB900B89070 /* CustomTextfieldStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextfieldStyle.swift; sourceTree = "<group>"; };
 		AA94EE6A2A008AB900B89070 /* Home.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
-		AA94EE6E2A008AC600B89070 /* MenuItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItems.swift; sourceTree = "<group>"; };
+		AA94EE6E2A008AC600B89070 /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		AA94EE6F2A008AC600B89070 /* Onboarding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
 		AA94EE702A008AC600B89070 /* Menu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		AA94EE742A008AD000B89070 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA4AE26B2A045A9D0091FEBB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AA4AE26C2A045AC10091FEBB /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		AA94EE4C2A008A6800B89070 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		AA94EE572A008A6800B89070 /* LittleLemonProject */ = {
 			isa = PBXGroup;
 			children = (
+				AA4AE26B2A045A9D0091FEBB /* Extension */,
 				AA94EE672A008AA000B89070 /* View */,
 				AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */,
 				AA94EE5E2A008A6A00B89070 /* LittleLemonProject.entitlements */,
@@ -86,7 +97,7 @@
 			children = (
 				AA94EE742A008AD000B89070 /* UserProfile.swift */,
 				AA94EE702A008AC600B89070 /* Menu.swift */,
-				AA94EE6E2A008AC600B89070 /* MenuItems.swift */,
+				AA94EE6E2A008AC600B89070 /* MenuCell.swift */,
 				AA94EE6F2A008AC600B89070 /* Onboarding.swift */,
 				AA94EE682A008AB900B89070 /* CustomStyle.swift */,
 				AA94EE692A008AB900B89070 /* CustomTextfieldStyle.swift */,
@@ -166,12 +177,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA94EE6B2A008AB900B89070 /* CustomStyle.swift in Sources */,
+				AA4AE26D2A045AC10091FEBB /* Color+Extension.swift in Sources */,
 				AA94EE732A008AC600B89070 /* Menu.swift in Sources */,
 				AA94EE6D2A008AB900B89070 /* Home.swift in Sources */,
 				AA94EE722A008AC600B89070 /* Onboarding.swift in Sources */,
 				AA94EE6C2A008AB900B89070 /* CustomTextfieldStyle.swift in Sources */,
 				AA94EE592A008A6800B89070 /* LittleLemonProjectApp.swift in Sources */,
-				AA94EE712A008AC600B89070 /* MenuItems.swift in Sources */,
+				AA94EE712A008AC600B89070 /* MenuCell.swift in Sources */,
 				AA94EE752A008AD000B89070 /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
