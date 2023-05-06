@@ -24,14 +24,14 @@ struct MenuView: View {
                     .fontWeight(.heavy)
                     .foregroundColor(Color.white)
                 HStack {
-                    VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 12) {
                         
                         Text("Chicago")
                             .foregroundColor(Color.theme.customPrimary2)
                             .font(.title)
                         
                         Text("we are a familly owned mediterenean restaurant, focused on traditional recipes served with a moderntwist")
-                            .lineSpacing(20)
+                            .lineSpacing(10)
                             .multilineTextAlignment(.leading)
                             .font(.body)
                             .padding(.trailing)
@@ -47,13 +47,13 @@ struct MenuView: View {
             .padding()
             .background(Color.theme.customPrimary1)
             
-            VStack(spacing: 20){
+            VStack(spacing: 12){
                 HStack {
                     Text("Order for delivery")
                         .font(.title)
                     Spacer()
                 }
-                .padding(.horizontal)
+               
                 
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack {

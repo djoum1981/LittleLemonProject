@@ -21,8 +21,10 @@ extension Dish{
     }
     
     
-    static func query(by category: String? = nil)throws->[Dish]{
+    static func query(by category: String? = nil, and name: String? = nil)throws->[Dish]{
         let request: NSFetchRequest<Dish> = Dish.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(keyPath: \Dish.title, ascending: true)
+        request.sortDescriptors = [sortDescriptor]
         if let category = category{
             let predicate = NSPredicate(format: "category == %@", category)
             request.predicate = predicate
