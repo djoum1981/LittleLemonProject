@@ -53,7 +53,6 @@ struct DishDetail: View {
                 } label: {
                     Text("Ok")
                 }
-
             } message: {
                 Text("\(dish.title ?? "" ) is added successfully to the cart")
             }
