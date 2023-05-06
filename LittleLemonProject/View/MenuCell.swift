@@ -31,9 +31,14 @@ struct MenuCell: View {
                         
             let imageUrl = URL(string: dishItem.image ?? "No image")
             AsyncImage(url: imageUrl) { image in
-                image.resizable()
+                    image.resizable()
             } placeholder: {
-                ProgressView()
+                VStack(spacing: 12){
+                    ProgressView()
+                    Text("Loading ...")
+                        .font(.caption2)
+                        .foregroundColor(Color.primary)
+                }
             }
             .frame(width: 100, height: 100)
         }
