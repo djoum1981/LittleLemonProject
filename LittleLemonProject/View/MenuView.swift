@@ -7,8 +7,13 @@
 
 import SwiftUI
 
-struct Menu: View {
+struct MenuView: View {
     @State var search: String = ""
+    @ObservedObject var homeViewModel: HomeViewModel
+    @State var isdishSelected: Bool = false
+    @State var SelectedDish: Dish?
+    
+    
     var body: some View {
         VStack{
             HStack(spacing: 20) {
@@ -36,7 +41,6 @@ struct Menu: View {
                             .foregroundColor(Color.theme.customPrimary2)
                             .font(.title)
                         
-                        
                         Text("we are a familly owned mediterenean restaurant, focused on traditional recipes served with a moderntwist")
                             .lineSpacing(20)
                             .multilineTextAlignment(.leading)
@@ -47,7 +51,6 @@ struct Menu: View {
                     Image("Hero image")
                         .resizable()
                         .frame(width: 130, height: 160)
-                    
                 }
                 
             }
@@ -64,63 +67,50 @@ struct Menu: View {
                 .padding(.horizontal)
                 
                 ScrollView(.horizontal, showsIndicators: false){
-                    HStack(spacing: 10) {
-                        Spacer()
-                        Button {
-                            
-                        } label: {
-                            Text("Starters")
-                                .padding(8)
+                    HStack {
+                        ForEach(homeViewModel.categoryList, id: \.self) { category in
+                                Button {
+                                    homeViewModel.category = category.lowercased()
+                                    do{
+                                        try homeViewModel.loadData { list in
+                                            homeViewModel.dishList = list
+                                        }
+                                    }catch{
+                                        print("Could not filter")
+                                    }
+                                } label: {
+                                    Text(category)
+                                        .foregroundColor(Color.theme.customPrimary2)
+                                        .padding(8)
+                                }
+                                .buttonStyle(.bordered)
                         }
-                        .buttonStyle(.bordered)
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("Main")
-                                .padding(8)
-                        }
-                        .buttonStyle(.bordered)
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("Desserts")
-                                .padding(8)
-                        }
-                        .buttonStyle(.bordered)
-                        
-                        Button {
-                            
-                        } label: {
-                            Text("Sides")
-                                .padding(8)
-                        }
-                        .buttonStyle(.bordered)
-                        
                     }
-                    
                 }
             }
             .padding()
             .frame(maxWidth: .infinity)
             
             ScrollView{
-                ForEach(1..<5){ item in
-                   MenuCell()
-                    
+                ForEach(homeViewModel.dishList, id: \.id) { dish in
+                    NavigationLink {
+                        DishDetail(dish: dish)
+                    } label: {
+                        MenuCell(dishItem: dish)
+                    }
+
                 }
             }
             .frame(maxWidth: .infinity)
             .background(Color.theme.customSecondary5)
-            
+                
         }
     }
 }
 
 struct Menu_Previews: PreviewProvider {
     static var previews: some View {
-        Menu()
+        MenuView(homeViewModel: HomeViewModel())
     }
 }
 

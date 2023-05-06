@@ -67,6 +67,7 @@ struct Onboarding: View {
                 if (UserDefaults().bool(forKey: kIsLoggedIn)){
                     isLoggedIn = true
                 }
+                
             })
             .padding()
         //}

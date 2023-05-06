@@ -8,21 +8,30 @@
 import SwiftUI
 
 struct MenuCell: View {
+    var dishItem: Dish
+    
+
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 12){
-                Text("Greek Salad")
+                Text(dishItem.title ?? "No title")
                     .font(.title)
                     .fontWeight(.bold)
                     
-                Text("The famous greek salad of crispy and lettuce, peppers, olive, and our chicago....")
+                Text(dishItem.itemDescription ?? "No description")
                     .font(.body)
+                    .multilineTextAlignment(.leading)
                     .lineSpacing(10)
-                Text("$12.99")
+                
+                Text(dishItem.price.currencyAsString)
                     .monospaced()
+                    .padding(.top, 8)
             }
+            .foregroundColor(.primary)
             .padding(.vertical)
-            Image("Greek salad")
+            
+            Image(dishItem.title ?? "Greek salad")
                 .resizable()
                 .frame(width: 100, height: 100)
         }
@@ -32,6 +41,6 @@ struct MenuCell: View {
 
 struct MenuItems_Previews: PreviewProvider {
     static var previews: some View {
-        MenuCell()
+        MenuCell(dishItem: Dish())
     }
 }
