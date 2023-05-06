@@ -83,13 +83,15 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		AA4AE26B2A045A9D0091FEBB /* Extension */ = {
+		AA4AE26B2A045A9D0091FEBB /* Extension+Style */ = {
 			isa = PBXGroup;
 			children = (
+				AA94EE692A008AB900B89070 /* CustomTextfieldStyle.swift */,
+				AA94EE682A008AB900B89070 /* CustomStyle.swift */,
 				AA4AE26C2A045AC10091FEBB /* Color+Extension.swift */,
 				AA4AE2772A05DF280091FEBB /* Double+Extension.swift */,
 			);
-			path = Extension;
+			path = "Extension+Style";
 			sourceTree = "<group>";
 		};
 		AA4AE2722A05B5D30091FEBB /* ViewModel */ = {
@@ -131,7 +133,7 @@
 				AA4AE2722A05B5D30091FEBB /* ViewModel */,
 				AA018BD32A055A5C006ACE0C /* Database */,
 				AA018BD22A055A52006ACE0C /* Model */,
-				AA4AE26B2A045A9D0091FEBB /* Extension */,
+				AA4AE26B2A045A9D0091FEBB /* Extension+Style */,
 				AA94EE672A008AA000B89070 /* View */,
 				AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */,
 				AA94EE5E2A008A6A00B89070 /* LittleLemonProject.entitlements */,
@@ -157,8 +159,6 @@
 				AA94EE742A008AD000B89070 /* UserProfile.swift */,
 				AA94EE702A008AC600B89070 /* MenuView.swift */,
 				AA94EE6F2A008AC600B89070 /* Onboarding.swift */,
-				AA94EE682A008AB900B89070 /* CustomStyle.swift */,
-				AA94EE692A008AB900B89070 /* CustomTextfieldStyle.swift */,
 				AA94EE6A2A008AB900B89070 /* Home.swift */,
 				AA4AE27B2A05EFBE0091FEBB /* DishDetail.swift */,
 			);
