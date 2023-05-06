@@ -40,7 +40,7 @@ extension Dish{
         return nil
     }
     
-    static func saveAll(dishes: [DishMenu])throws{
+    static func saveAll(dishes: [MenuItem])throws{
         for aDish in dishes {
             if (try !isDishExist(title: aDish.title)){
                 let dish = Dish(context: context)

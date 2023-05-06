@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct MenuDishes: Codable {
-    let menu: [DishMenu]
+struct MenuList: Codable {
+    let menu: [MenuItem]
 }
 
 
-struct DishMenu: Codable, Identifiable {
+struct MenuItem: Codable, Identifiable {
     let id: Int
     let title: String
     let description: String

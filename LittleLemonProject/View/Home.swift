@@ -9,20 +9,21 @@ import SwiftUI
 
 struct Home: View {
     var homeVm = HomeViewModel()
-
+    
     
     var body: some View {
         TabView {
-            MenuView(homeViewModel: homeVm)
-                .tabItem {
-                    Label {
-                        Text("Menu")
-                    } icon: {
-                        Image(systemName: "list.dash")
-                    }
+                MenuView(homeViewModel: homeVm)
+            .tabItem {
+                Label {
+                    Text("Menu")
+                } icon: {
+                    Image(systemName: "list.dash")
                 }
-                
-                UserProfile()
+            }
+            
+            
+            UserProfile()
                 .tabItem {
                     Label {
                         Text("Profile")
@@ -35,7 +36,7 @@ struct Home: View {
         .navigationBarBackButtonHidden(true)
         .task {
             do{
-               let dishes = try await homeVm.fetchData()
+                let dishes = try await homeVm.fetchData()
                 if let dishes = dishes{
                     try Dish.deleteAll()
                     try Dish.saveAll(dishes: dishes)

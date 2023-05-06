@@ -11,13 +11,13 @@ class HomeViewModel: ObservableObject{
     @Published var category: String? = nil
     @Published var categoryList: [String] = []
     
-    func fetchData()async throws -> [DishMenu]?{
+    func fetchData()async throws -> [MenuItem]?{
         let url = URL(string: "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json")
-        var dishMenu: [DishMenu]? = nil
+        var dishMenu: [MenuItem]? = nil
         if let url = url{
             let request = URLRequest(url: url)
             let (data, _) = try await URLSession.shared.data(for: request)
-            let dishes = try JSONDecoder().decode(MenuDishes.self, from: data)
+            let dishes = try JSONDecoder().decode(MenuList.self, from: data)
             dishMenu = dishes.menu
         }
         return dishMenu

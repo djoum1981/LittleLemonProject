@@ -16,19 +16,8 @@ struct MenuView: View {
     
     var body: some View {
         VStack{
-            HStack(spacing: 20) {
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300)
-                
-                Image("Profile")
-                    .resizable()
-                    .frame(width: 60, height: 60)
-            }
-            .padding(.horizontal)
-            
-            
+            Header()
+    
             VStack(alignment: .leading)  {
                 Text("Little Lemon")
                     .font(.title)
@@ -115,4 +104,5 @@ struct Menu_Previews: PreviewProvider {
         MenuView(homeViewModel: HomeViewModel())
     }
 }
+
 

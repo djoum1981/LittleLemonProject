@@ -11,7 +11,7 @@ struct MenuCell: View {
     var dishItem: Dish
         
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 12){
                 Text(dishItem.title ?? "No title")
                     .font(.title)
@@ -27,20 +27,11 @@ struct MenuCell: View {
                     .padding(.top, 8)
             }
             .foregroundColor(.primary)
-            .padding(.vertical)
+            .padding()
                         
-            let imageUrl = URL(string: dishItem.image ?? "No image")
-            AsyncImage(url: imageUrl) { image in
-                    image.resizable()
-            } placeholder: {
-                VStack(spacing: 12){
-                    ProgressView()
-                    Text("Loading ...")
-                        .font(.caption2)
-                        .foregroundColor(Color.primary)
-                }
-            }
-            .frame(width: 100, height: 100)
+            Image(dishItem.title ?? "")
+                .resizable()
+                .frame(width: 120, height: 120)
         }
         .padding(.horizontal)
     }

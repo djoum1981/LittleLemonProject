@@ -14,8 +14,8 @@ extension PreviewProvider{
         dish.title = "Duriz"
         dish.category = "Food"
         dish.price = 100.0
-        dish.itemDescription = "The best food in the worl"
-        dish.image = "https://github.com/Meta-Mobile-Developer-PC/Working-With-Data-API/blob/main/images/greekSalad.jpg?raw=true"
+        dish.itemDescription = "The best food in the world if you ever try this dish you surely will want to try more of it, because it is one of teh be thing that would "
+        dish.image = "Grilled Fish"
         return dish
     }
 }
