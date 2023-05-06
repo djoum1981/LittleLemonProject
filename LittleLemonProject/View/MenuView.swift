@@ -80,7 +80,7 @@ struct MenuView: View {
                                     }
                                 } label: {
                                     Text(category)
-                                        .foregroundColor(Color.theme.customPrimary2)
+                                        .foregroundColor(Color.primary)
                                         .padding(8)
                                 }
                                 .buttonStyle(.bordered)
@@ -98,12 +98,14 @@ struct MenuView: View {
                     } label: {
                         MenuCell(dishItem: dish)
                     }
-
                 }
             }
             .frame(maxWidth: .infinity)
             .background(Color.theme.customSecondary5)
                 
+        }
+        .onAppear {
+            homeViewModel.category = nil
         }
     }
 }

@@ -16,6 +16,7 @@
 		AA4AE2762A05B8880091FEBB /* Dish+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2752A05B8880091FEBB /* Dish+Extension.swift */; };
 		AA4AE2782A05DF280091FEBB /* Double+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE2772A05DF280091FEBB /* Double+Extension.swift */; };
 		AA4AE27C2A05EFBE0091FEBB /* DishDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4AE27B2A05EFBE0091FEBB /* DishDetail.swift */; };
+		AA90FFB12A06881F005552B1 /* Preview_Provider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA90FFB02A06881F005552B1 /* Preview_Provider+Extension.swift */; };
 		AA94EE592A008A6800B89070 /* LittleLemonProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */; };
 		AA94EE612A008A6A00B89070 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA94EE602A008A6A00B89070 /* Preview Assets.xcassets */; };
 		AA94EE6B2A008AB900B89070 /* CustomStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA94EE682A008AB900B89070 /* CustomStyle.swift */; };
@@ -37,6 +38,7 @@
 		AA4AE2752A05B8880091FEBB /* Dish+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dish+Extension.swift"; sourceTree = "<group>"; };
 		AA4AE2772A05DF280091FEBB /* Double+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extension.swift"; sourceTree = "<group>"; };
 		AA4AE27B2A05EFBE0091FEBB /* DishDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetail.swift; sourceTree = "<group>"; };
+		AA90FFB02A06881F005552B1 /* Preview_Provider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Preview_Provider+Extension.swift"; sourceTree = "<group>"; };
 		AA94EE552A008A6800B89070 /* LittleLemonProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleLemonProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA94EE582A008A6800B89070 /* LittleLemonProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LittleLemonProjectApp.swift; sourceTree = "<group>"; };
 		AA94EE5E2A008A6A00B89070 /* LittleLemonProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LittleLemonProject.entitlements; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		AA94EE5F2A008A6A00B89070 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
+				AA90FFB02A06881F005552B1 /* Preview_Provider+Extension.swift */,
 				AA94EE602A008A6A00B89070 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
@@ -230,6 +233,7 @@
 				AA4AE27C2A05EFBE0091FEBB /* DishDetail.swift in Sources */,
 				AA018BD82A055ABD006ACE0C /* LittleLemonProjectDB.xcdatamodeld in Sources */,
 				AA4AE2762A05B8880091FEBB /* Dish+Extension.swift in Sources */,
+				AA90FFB12A06881F005552B1 /* Preview_Provider+Extension.swift in Sources */,
 				AA4AE2782A05DF280091FEBB /* Double+Extension.swift in Sources */,
 				AA94EE722A008AC600B89070 /* Onboarding.swift in Sources */,
 				AA4AE2742A05B6140091FEBB /* HomeViewModel.swift in Sources */,
@@ -377,7 +381,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
@@ -385,7 +389,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.julien.laurent.LittleLemonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -415,7 +421,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
@@ -423,7 +429,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.julien.laurent.LittleLemonProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

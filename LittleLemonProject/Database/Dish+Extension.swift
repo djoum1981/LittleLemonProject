@@ -48,7 +48,7 @@ extension Dish{
                 dish.category = aDish.category
                 dish.id = Int16(aDish.id)
                 dish.itemDescription = aDish.description
-                dish.image = aDish.title.uppercased()
+                dish.image = aDish.image
                 dish.price = Double(aDish.price) ?? 0
                 
                 try context.save()
