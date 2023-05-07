@@ -10,6 +10,7 @@ class HomeViewModel: ObservableObject{
     @Published var dishList: [Dish] = []
     @Published var category: String? = nil
     @Published var categoryList: [String] = []
+    @Published var searchText: String = ""
     
     func fetchData()async throws -> [MenuItem]?{
         let url = URL(string: "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json")
@@ -26,6 +27,13 @@ class HomeViewModel: ObservableObject{
     func  loadData(_ list: ([Dish]) -> Void) throws{
         let dishData = try Dish.query(by: category)
         list(dishData)
+    }
+    
+    func  search(_ list: ([Dish]) -> Void) throws{
+        let dishData = try Dish.query(by: searchText)
+        if let dishData = dishData{
+            list(dishData)
+        }
     }
     
     func getCategory(_ categories: ([String])->Void)throws {

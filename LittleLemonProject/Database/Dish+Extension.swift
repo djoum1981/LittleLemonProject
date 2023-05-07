@@ -21,25 +21,23 @@ extension Dish{
     }
     
     
-    static func query(by category: String? = nil, and name: String? = nil)throws->[Dish]{
+    static func query(by category: String? = nil)throws->[Dish]{
         let request: NSFetchRequest<Dish> = Dish.fetchRequest()
         let sortDescriptor = NSSortDescriptor(keyPath: \Dish.title, ascending: true)
         request.sortDescriptors = [sortDescriptor]
         if let category = category{
-            let predicate = NSPredicate(format: "category == %@", category)
-            request.predicate = predicate
+            let categoryPredicate = NSPredicate(format: "category == %@", category)
+            request.predicate = categoryPredicate
         }
+
         return try context.fetch(request) as [Dish]
     }
     
-    static func query(by name: String)throws->Dish?{
+    static func query(by name: String)throws->[Dish]?{
         let request: NSFetchRequest<Dish> = Dish.fetchRequest()
-        let predicate = NSPredicate(format: "title == %@", name)
+        let predicate = NSPredicate(format: "title CONTAINS[CD] %@", name)
         request.predicate = predicate
-        if let dish = try context.fetch(request).last{
-            return dish
-        }
-        return nil
+        return try context.fetch(request)
     }
     
     static func saveAll(dishes: [MenuItem])throws{
