@@ -45,6 +45,6 @@ class HomeViewModel: ObservableObject{
             dishCategory.append(dish.category?.capitalized ?? "No Category")
         }
         dishCategory.append("Sides")
-       categories(dishCategory)
+        categories(dishCategory)
     }
 }

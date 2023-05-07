@@ -10,7 +10,6 @@ import SwiftUI
 struct Home: View {
     var homeVm = HomeViewModel()
     
-    
     var body: some View {
         TabView {
                 MenuView(homeViewModel: homeVm)

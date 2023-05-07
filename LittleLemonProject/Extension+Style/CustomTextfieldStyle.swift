@@ -12,9 +12,10 @@ struct CustomTextfieldStyle: TextFieldStyle{
         configuration
             .padding()
             .frame(maxWidth: .infinity)
-            .background(Color(uiColor: .systemGray6))
+            .background(Color(uiColor: .tertiarySystemBackground))
             .cornerRadius(4)
             .shadow(radius: 2)
+           
     }
     
     

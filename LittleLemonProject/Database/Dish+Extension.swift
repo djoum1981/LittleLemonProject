@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 extension Dish{
-  
+    
     static var context: NSManagedObjectContext{
         Datamanager.shared.persitentContainer.viewContext
     }
@@ -29,7 +29,7 @@ extension Dish{
             let categoryPredicate = NSPredicate(format: "category == %@", category)
             request.predicate = categoryPredicate
         }
-
+        
         return try context.fetch(request) as [Dish]
     }
     

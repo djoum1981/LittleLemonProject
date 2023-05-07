@@ -9,14 +9,14 @@ import SwiftUI
 
 struct MenuCell: View {
     var dishItem: Dish
-        
+    
     var body: some View {
         HStack(alignment: .center) {
             VStack(alignment: .leading, spacing: 12){
                 Text(dishItem.title ?? "No title")
                     .font(.title)
                     .fontWeight(.bold)
-                    
+                
                 Text(dishItem.itemDescription ?? "No description")
                     .font(.body)
                     .multilineTextAlignment(.leading)
@@ -28,7 +28,7 @@ struct MenuCell: View {
             }
             .foregroundColor(.primary)
             .padding()
-                        
+            
             Image(dishItem.title ?? "")
                 .resizable()
                 .frame(width: 120, height: 120)
