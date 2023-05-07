@@ -61,7 +61,7 @@ struct MenuView: View {
                             })
                         }
                     }catch{
-                        print("issues")
+                        print("database error \(error.localizedDescription)")
                     }
                 })
                 .padding()
