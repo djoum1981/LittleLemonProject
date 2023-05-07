@@ -8,12 +8,9 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State var search: String = ""
-    @ObservedObject var homeViewModel: HomeViewModel
-    @State var isdishSelected: Bool = false
-    @State var SelectedDish: Dish?
     
-    @State var tapped: Bool = true
+    @ObservedObject var homeViewModel: HomeViewModel
+    @State var SelectedDish: Dish?
     
     var body: some View {
         VStack{
@@ -24,7 +21,7 @@ struct MenuView: View {
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.theme.customPrimary2)
-                if tapped {
+                if !homeViewModel.isTapped {
                     HStack {
                         VStack(alignment: .leading, spacing: 12) {
                             
@@ -43,23 +40,16 @@ struct MenuView: View {
                             .frame(width: 100, height: 100)
                             .cornerRadius(8)
                     }
-                    .opacity(tapped ? 1 : 0)
+                    .opacity(!homeViewModel.isTapped ? 1 : 0)
                 }
                 
-                
-                
-                TextField(text: $homeViewModel.searchText) {
-                    Label {
-                        Text("Search")
-                    } icon: {
-                        Image(systemName: "magnifyingglass")
-                    }
-                }
-                .onChange(of: homeViewModel.searchText, perform: { _ in
+                TextField("Search", text: $homeViewModel.searchText, onEditingChanged: { isChange in
                     withAnimation {
-                        tapped = homeViewModel.searchText.isEmpty
+                        homeViewModel.isTapped = isChange
                     }
-                    print(tapped)
+                })
+                .submitLabel(.done)
+                .onChange(of: homeViewModel.searchText, perform: { _ in
                     do{
                         if !homeViewModel.searchText.isEmpty{
                             try homeViewModel.search({ dish in
@@ -84,7 +74,7 @@ struct MenuView: View {
             .background(Color.theme.customPrimary1)
             
             VStack(spacing: 12){
-                if tapped {
+                if !homeViewModel.isTapped {
                     HStack {
                         Text("Order for delivery")
                             .font(.title)
@@ -110,7 +100,7 @@ struct MenuView: View {
                                 .buttonStyle(.bordered)
                             }
                         }
-                        .opacity(tapped ? 1 : 0)
+                        .opacity(!homeViewModel.isTapped ? 1 : 0)
                     }
                 }
             }
@@ -130,10 +120,10 @@ struct MenuView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            
         }
         .onAppear {
             homeViewModel.category = nil
+            homeViewModel.searchText = ""
         }
     }
 }

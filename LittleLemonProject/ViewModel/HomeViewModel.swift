@@ -11,6 +11,7 @@ class HomeViewModel: ObservableObject{
     @Published var category: String? = nil
     @Published var categoryList: [String] = []
     @Published var searchText: String = ""
+    @Published var isTapped: Bool = false
     
     func fetchData()async throws -> [MenuItem]?{
         let url = URL(string: "https://raw.githubusercontent.com/Meta-Mobile-Developer-PC/Working-With-Data-API/main/menu.json")
