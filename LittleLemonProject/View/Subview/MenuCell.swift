@@ -31,7 +31,8 @@ struct MenuCell: View {
             
             Image(dishItem.title ?? "")
                 .resizable()
-                .frame(width: 120, height: 120)
+                .frame(width: 100, height: 100)
+                .cornerRadius(4)
         }
         .padding(.horizontal)
     }

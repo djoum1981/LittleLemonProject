@@ -13,6 +13,7 @@ struct MenuView: View {
     @State var isdishSelected: Bool = false
     @State var SelectedDish: Dish?
     
+    @State var tapped: Bool = true
     
     var body: some View {
         VStack{
@@ -22,13 +23,13 @@ struct MenuView: View {
                 Text("Little Lemon")
                     .font(.title)
                     .fontWeight(.heavy)
-                    .foregroundColor(Color.white)
-                if homeViewModel.searchText.isEmpty {
+                    .foregroundColor(Color.theme.customPrimary2)
+                if tapped {
                     HStack {
                         VStack(alignment: .leading, spacing: 12) {
                             
                             Text("Chicago")
-                                .foregroundColor(Color.theme.customPrimary2)
+                                .foregroundColor(Color.white)
                                 .font(.title)
                             
                             Text("we are a familly owned mediterenean restaurant, focused on traditional recipes served with a moderntwist")
@@ -36,13 +37,13 @@ struct MenuView: View {
                                 .font(.body)
                                 .padding(.trailing)
                                 .foregroundColor(Color.white)
-                            
                         }
                         Image("Hero image")
                             .resizable()
                             .frame(width: 100, height: 100)
+                            .cornerRadius(8)
                     }
-                    .opacity(homeViewModel.searchText.isEmpty ? 1 : 0)
+                    .opacity(tapped ? 1 : 0)
                 }
                 
                 
@@ -55,6 +56,10 @@ struct MenuView: View {
                     }
                 }
                 .onChange(of: homeViewModel.searchText, perform: { _ in
+                    withAnimation {
+                        tapped = homeViewModel.searchText.isEmpty
+                    }
+                    print(tapped)
                     do{
                         if !homeViewModel.searchText.isEmpty{
                             try homeViewModel.search({ dish in
@@ -79,7 +84,7 @@ struct MenuView: View {
             .background(Color.theme.customPrimary1)
             
             VStack(spacing: 12){
-                if homeViewModel.searchText.isEmpty {
+                if tapped {
                     HStack {
                         Text("Order for delivery")
                             .font(.title)
@@ -105,7 +110,7 @@ struct MenuView: View {
                                 .buttonStyle(.bordered)
                             }
                         }
-                        .opacity(homeViewModel.searchText.isEmpty ? 1 : 0)
+                        .opacity(tapped ? 1 : 0)
                     }
                 }
             }
@@ -117,12 +122,14 @@ struct MenuView: View {
                     NavigationLink {
                         DishDetail(dish: dish)
                     } label: {
-                        MenuCell(dishItem: dish)
+                        VStack{
+                            Divider()
+                            MenuCell(dishItem: dish)
+                        }
                     }
                 }
             }
             .frame(maxWidth: .infinity)
-            .background(Color.theme.customSecondary5)
             
         }
         .onAppear {
