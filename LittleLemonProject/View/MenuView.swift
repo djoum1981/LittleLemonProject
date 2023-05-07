@@ -14,50 +14,81 @@ struct MenuView: View {
     @State var SelectedDish: Dish?
     
     
+    
     var body: some View {
         VStack{
             Header()
-    
+            
             VStack(alignment: .leading)  {
                 Text("Little Lemon")
                     .font(.title)
                     .fontWeight(.heavy)
                     .foregroundColor(Color.white)
-                HStack {
-                    VStack(alignment: .leading, spacing: 20) {
-                        
-                        Text("Chicago")
-                            .foregroundColor(Color.theme.customPrimary2)
-                            .font(.title)
-                        
-                        Text("we are a familly owned mediterenean restaurant, focused on traditional recipes served with a moderntwist")
-                            .lineSpacing(20)
-                            .multilineTextAlignment(.leading)
-                            .font(.body)
-                            .padding(.trailing)
-                            .foregroundColor(Color.white)
+                if homeViewModel.searchText.isEmpty {
+                    HStack {
+                        VStack(alignment: .leading, spacing: 12) {
+                            
+                            Text("Chicago")
+                                .foregroundColor(Color.theme.customPrimary2)
+                                .font(.title)
+                            
+                            Text("we are a familly owned mediterenean restaurant, focused on traditional recipes served with a moderntwist")
+                                .multilineTextAlignment(.leading)
+                                .font(.body)
+                                .padding(.trailing)
+                                .foregroundColor(Color.white)
+                            
+                        }
+                        Image("Hero image")
+                            .resizable()
+                            .frame(width: 100, height: 100)
                     }
-                    Image("Hero image")
-                        .resizable()
-                        .frame(width: 130, height: 160)
+                    .opacity(homeViewModel.searchText.isEmpty ? 1 : 0)
                 }
                 
+                
+                
+                TextField(text: $homeViewModel.searchText) {
+                    Label {
+                        Text("Search")
+                    } icon: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                }
+                .onChange(of: homeViewModel.searchText, perform: { _ in
+                    do{
+                        if !homeViewModel.searchText.isEmpty{
+                            try homeViewModel.search({ dish in
+                                homeViewModel.dishList = dish
+                            })
+                        }else{
+                            try homeViewModel.loadData({ dish in
+                                homeViewModel.dishList = dish
+                            })
+                        }
+                    }catch{
+                        print("issues")
+                    }
+                })
+                .padding()
+                .background(Color.white)
+                .foregroundColor(Color.black)
+                .cornerRadius(8)
             }
             .frame(maxWidth: .infinity)
             .padding()
             .background(Color.theme.customPrimary1)
             
-            VStack(spacing: 20){
-                HStack {
-                    Text("Order for delivery")
-                        .font(.title)
-                    Spacer()
-                }
-                .padding(.horizontal)
-                
-                ScrollView(.horizontal, showsIndicators: false){
+            VStack(spacing: 12){
+                if homeViewModel.searchText.isEmpty {
                     HStack {
-                        ForEach(homeViewModel.categoryList, id: \.self) { category in
+                        Text("Order for delivery")
+                            .font(.title)
+                        Spacer()
+                    }
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack {
+                            ForEach(homeViewModel.categoryList, id: \.self) { category in
                                 Button {
                                     homeViewModel.category = category.lowercased()
                                     do{
@@ -73,7 +104,9 @@ struct MenuView: View {
                                         .padding(8)
                                 }
                                 .buttonStyle(.bordered)
+                            }
                         }
+                        .opacity(homeViewModel.searchText.isEmpty ? 1 : 0)
                     }
                 }
             }
@@ -91,7 +124,7 @@ struct MenuView: View {
             }
             .frame(maxWidth: .infinity)
             .background(Color.theme.customSecondary5)
-                
+            
         }
         .onAppear {
             homeViewModel.category = nil

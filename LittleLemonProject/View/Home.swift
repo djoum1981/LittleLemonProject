@@ -46,7 +46,6 @@ struct Home: View {
                     try homeVm.getCategory({ categories in
                         homeVm.categoryList = categories
                     })
-                    print(homeVm.categoryList)
                 }
             }catch let error{
                 print("error happen on task home \(error.localizedDescription)")
