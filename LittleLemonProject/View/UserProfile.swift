@@ -11,6 +11,7 @@ struct UserProfile: View {
     let firstName = UserDefaults().string(forKey: kFirstName)
     let lastName = UserDefaults().string(forKey: kLastName)
     let email = UserDefaults().string(forKey: kEmail)
+    
     @State var orderStatus: Bool = true
     @State var specialOffer: Bool = true
     @State var passwordChanges: Bool = false
