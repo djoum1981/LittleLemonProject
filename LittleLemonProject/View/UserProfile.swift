@@ -48,7 +48,6 @@ struct UserProfile: View {
                 Section {
                     Text(email ?? "")
                 }header: {
-                    
                     Text("Email")
                         .font(.caption)
                 }
@@ -58,9 +57,9 @@ struct UserProfile: View {
                     Text("Phone number")
                         .font(.caption)
                 }
-               
+                
                 Section {
-                 
+                    
                     Toggle(isOn: $orderStatus) {
                         Text("Order status")
                     }
@@ -70,11 +69,11 @@ struct UserProfile: View {
                     Toggle(isOn: $passwordChanges) {
                         Text("Password changes")
                     }
-
+                    
                     Toggle(isOn: $newLetter) {
                         Text("Newsletter")
                     }
-
+                    
                 }header: {
                     Text("Email notification")
                         .font(.headline)
@@ -82,8 +81,7 @@ struct UserProfile: View {
             }
             
             
-                
-            VStack{
+            Group{
                 Button {
                     UserDefaults.standard.set(false, forKey: kIsLoggedIn)
                     dismiss()
@@ -113,11 +111,10 @@ struct UserProfile: View {
                             .background(Color.theme.customPrimary1)
                             .cornerRadius(8)
                     }
-                    
                 }
-                .padding()
+                .padding(.horizontal)
             }
-            .padding()
+            .padding(8)
         }
     }
 }
