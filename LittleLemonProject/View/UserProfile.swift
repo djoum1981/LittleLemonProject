@@ -11,91 +11,121 @@ struct UserProfile: View {
     let firstName = UserDefaults().string(forKey: kFirstName)
     let lastName = UserDefaults().string(forKey: kLastName)
     let email = UserDefaults().string(forKey: kEmail)
+    @State var orderStatus: Bool = true
+    @State var specialOffer: Bool = true
+    @State var passwordChanges: Bool = false
+    @State var newLetter: Bool = false
     
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-            NavigationView{
-                
-                GeometryReader{ proxy in
-                    VStack{
-                        VStack{
-                            
-                            Image("Profile")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 250)
-                            
-                        }
-                        .frame(width: proxy.size.width, height: proxy.size.height * 0.40)
-                        .background(Color("littleLemonColor"))
-                       
-                        
-                        
-                        List{
-                            Section {
-                                Text(firstName ?? "")
-                                    .font(.title)
-                                    .fontWeight(.ultraLight)
-                                    .padding(.leading)
-                                    .padding(.vertical, 8)
-                            } header: {
-                                Text("First Name")
-                                    .font(.caption)
-                            }
-                            
-                            Section {
-                                Text(lastName ?? "")
-                                    .font(.title)
-                                    .fontWeight(.ultraLight)
-                                    .padding(.leading)
-                                    .padding(.vertical, 8)
-                                
-                            }header: {
-                                Text("Last Name")
-                                    .font(.caption)
-                            }
-                            
-                            Section {
-                                Text(email ?? "")
-                                    .font(.title)
-                                    .fontWeight(.ultraLight)
-                                    .padding(.leading)
-                                    .padding(.vertical, 8)
-                            }header: {
-                               
-                                Text("Email")
-                                    .font(.caption)
-                            }
-                        }
-                        .listStyle(.plain)
-                    }
-                }
-                .toolbar(content: {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button {
-                            UserDefaults.standard.set(false, forKey: kIsLoggedIn)
-                            dismiss()
-                        } label: {
-                            Text("Logout")
-                                .foregroundColor(.white)
-                        }
-                    }
+        VStack{
+            Image("Logo")
+            
+            Image("Profile")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200)
+            
+            List{
+                Section {
+                    Text(firstName ?? "")
                     
-                    ToolbarItem(placement: .principal) {
-                        Text("Profile")
-                            .font(.largeTitle)
-                            .foregroundColor(.white)
+                } header: {
+                    Text("First Name")
+                        .font(.caption)
+                }
+                
+                Section {
+                    Text(lastName ?? "")
+                    
+                    
+                }header: {
+                    Text("Last Name")
+                        .font(.caption)
+                }
+                
+                Section {
+                    Text(email ?? "")
+                }header: {
+                    
+                    Text("Email")
+                        .font(.caption)
+                }
+                Section {
+                    Text("(305) 521 3454")
+                } header: {
+                    Text("Phone number")
+                        .font(.caption)
+                }
+               
+                Section {
+                 
+                    Toggle(isOn: $orderStatus) {
+                        Text("Order status")
                     }
-                })
-                .navigationBarTitleDisplayMode(.inline)
+                    Toggle(isOn: $specialOffer) {
+                        Text("Special offer")
+                    }
+                    Toggle(isOn: $passwordChanges) {
+                        Text("Password changes")
+                    }
+
+                    Toggle(isOn: $newLetter) {
+                        Text("Newsletter")
+                    }
+
+                }header: {
+                    Text("Email notification")
+                        .font(.headline)
+                }
             }
             
+            
+                
+            VStack{
+                Button {
+                    UserDefaults.standard.set(false, forKey: kIsLoggedIn)
+                    dismiss()
+                } label: {
+                    Text("Logout")
+                    
+                }
+                .buttonStyle(CustomButtonStyle())
+                HStack{
+                    Button {
+                        
+                    } label: {
+                        Text("Discard Changes")
+                            .foregroundColor(Color.primary)
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color.theme.customPrimary1, lineWidth: 2))
+                    }
+                    
+                    Spacer()
+                    Button {
+                        
+                    } label: {
+                        Text("save Changes")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(Color.theme.customPrimary1)
+                            .cornerRadius(8)
+                    }
+                    
+                }
+                .padding()
+            }
+            .padding()
+        }
     }
 }
 
 struct UserProfile_Previews: PreviewProvider {
     static var previews: some View {
+        //NavigationView{
         UserProfile()
+        //}
     }
 }
